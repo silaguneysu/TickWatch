@@ -134,3 +134,6 @@ Overall:
 - **Use the map** to explore where ticks are being reported.
 - **Use the About Ticks page** to learn about species and prevention.
 - **Use read-aloud buttons** if you prefer audio or need accessibility support.
+
+VIDEO DEMO:
+https://1drv.ms/v/c/4b39b77ed26e4d27/IQDBDHAf6F1MT7U5cLuhf4K6AckqkWQCAUx60kSQTmfJanQ?e=p9ZDa8
