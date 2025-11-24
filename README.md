@@ -114,7 +114,7 @@ If the **“Report a Sighting”** feature is present:
    - Location of the tick
    - Date of sighting
    - Optional details (e.g. species, severity, notes)
-3. Submit the form to send your sighting (future versions may store this in a database like Supabase).
+3. Submit the form to send your sighting.
 
 ---
 
@@ -124,8 +124,7 @@ If the **“Report a Sighting”** feature is present:
   If the API is offline or slow, you may see:
   - A loading state
   - Fewer markers than expected
-  - Or fallback demo data in some builds
-- Some planned features (filters, full reporting, advanced charts) may be partially implemented or commented as “to be added”.
+  -Update of report form data onto mapping
 
 ---
 

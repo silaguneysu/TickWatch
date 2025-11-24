@@ -2,6 +2,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import elancoLogo from "./assets/elanco-logo.png";
+import Image from "./assets/Image.png";
+import Tick1Image from "./assets/Tick1Image.png";
+import Tick2Image from "./assets/Tick2Image.png";
+import "./App.css"; 
 
 function AboutTicks() {
   return (
@@ -49,6 +53,13 @@ function AboutTicks() {
               or woodland. Knowing how to identify them and where they live helps
               you protect your pets and yourself.
             </p>
+            <button
+                            type="button"
+                            className="primary-button"
+                            onClick={() => speakText(filtersDescription)}
+                          >
+                            🔊 Read aloud
+                          </button>
           </section>
 
           {/* SPECIES IDENTIFICATION GUIDE */}
@@ -58,6 +69,13 @@ function AboutTicks() {
               The UK is home to several tick species. Here are the most common
               ones you may encounter:
             </p>
+            <button
+                            type="button"
+                            className="primary-button"
+                            onClick={() => speakText(filtersDescription)}
+                          >
+                            🔊 Read aloud
+                          </button>
 
             <div className="species-grid">
               <div className="species-card">
@@ -151,8 +169,9 @@ function AboutTicks() {
           </section>
         </section>
 
-        {/* Right panel can be kept simple for now */}
+        {/* Right panel */}
         <section className="right-panel">
+          {/* Prevention tips */}
           <section className="panel-section">
             <h2>Prevention Tips</h2>
             <p className="panel-text">
@@ -160,6 +179,89 @@ function AboutTicks() {
               long grass or woodland. Use vet-recommended tick prevention
               products and remove any ticks promptly and safely.
             </p>
+            <button
+                            type="button"
+                            className="primary-button"
+                            onClick={() => speakText(filtersDescription)}
+                          >
+                            🔊 Read aloud
+                          </button>
+          </section>
+
+          {/* NEW: Tick type image stickers under prevention tips */}
+          <section className="panel-section tick-types">
+            <h2>Common UK tick species</h2>
+
+            <div className="tick-types-grid">
+              {/* Card 1 */}
+              <div className="tick-type-card">
+                <img
+                  src={Image}
+                  alt="Ixodes ricinus tick"
+                  className="tick-type-image"
+                />
+                <div className="tick-type-text">
+                  <h3>Ixodes ricinus (sheep tick)</h3>
+                  <p>
+                    The most common UK tick, found in damp grass and woodland.
+                    It can transmit Lyme disease to pets and people.
+                  </p>
+                  <button
+                                  type="button"
+                                  className="primary-button"
+                                  onClick={() => speakText(filtersDescription)}
+                                >
+                                  🔊 Read aloud
+                                </button>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="tick-type-card">
+                <img
+                  src={Tick1Image}
+                  alt="Ixodes hexagonus tick"
+                  className="tick-type-image"
+                />
+                <div className="tick-type-text">
+                  <h3>Ixodes hexagonus (hedgehog tick)</h3>
+                  <p>
+                    A nest-dwelling tick often found on hedgehogs, foxes, cats
+                    and dogs, and occasionally humans.
+                  </p>
+                  <button
+                                  type="button"
+                                  className="primary-button"
+                                  onClick={() => speakText(filtersDescription)}
+                                >
+                                  🔊 Read aloud
+                                </button>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="tick-type-card">
+                <img
+                  src={Tick2Image}
+                  alt="Dermacentor reticulatus tick"
+                  className="tick-type-image"
+                />
+                <div className="tick-type-text">
+                  <h3>Dermacentor reticulatus (ornate dog/meadow tick)</h3>
+                  <p>
+                    A larger, patterned tick found in open grassland that can
+                    bite dogs and spread diseases such as Babesia.
+                  </p>
+                  <button
+                                  type="button"
+                                  className="primary-button"
+                                  onClick={() => speakText(filtersDescription)}
+                                >
+                                  🔊 Read aloud
+                                </button>
+                </div>
+              </div>
+            </div>
           </section>
         </section>
       </main>

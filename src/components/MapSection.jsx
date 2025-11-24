@@ -1,4 +1,4 @@
-// src/components/MapSection.jsx
+
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -70,7 +70,7 @@ function isRecentSighting(dateStr) {
   return daysDiff <= 7;
 }
 
-// Normalise API data → consistent shape for the map
+
 function normaliseSighting(item, index) {
   if (!item) return null;
 
@@ -96,7 +96,7 @@ function normaliseSighting(item, index) {
       ? item.lng
       : null;
 
-  // Fallback: if no lat/lng, use UK city mapping
+  // error handle
   if ((lat == null || lng == null) && city && UK_CITY_COORDS[city]) {
     [lat, lng] = UK_CITY_COORDS[city];
   }
@@ -213,7 +213,7 @@ function MapSection({ onSelectSighting }) {
         }}
       >
         <MapContainer
-          center={[54.5, -3]} // roughly centre of the UK
+          center={[54.5, -3]}
           zoom={5.5}
           scrollWheelZoom={false}
           style={{ height: "500px", width: "100%" }}
@@ -320,77 +320,63 @@ function MapSection({ onSelectSighting }) {
             fontSize: "16px",
           }}
         >
-          Risk Levels
+          Risk levels
         </div>
 
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
             gap: "12px",
           }}
         >
+          {/* High */}
           <div style={{ display: "flex", alignItems: "center" }}>
             <div
               style={{
                 width: "20px",
                 height: "20px",
                 borderRadius: "50%",
-                background: "#dc2626",
+                background: "#dc2626", 
                 marginRight: "8px",
                 border: "2px solid white",
                 boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
               }}
             ></div>
-            <span style={{ fontSize: "14px" }}>
-              High Risk (e.g. deer tick, ornate cow tick)
-            </span>
+            <span style={{ fontSize: "14px" }}>High risk</span>
           </div>
 
+          {/* Medium */}
           <div style={{ display: "flex", alignItems: "center" }}>
             <div
               style={{
                 width: "20px",
                 height: "20px",
                 borderRadius: "50%",
-                background: "#f59e0b",
+                background: "#f59e0b", 
                 marginRight: "8px",
                 border: "2px solid white",
                 boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
               }}
             ></div>
-            <span style={{ fontSize: "14px" }}>
-              Medium Risk (e.g. hedgehog tick, red sheep tick)
-            </span>
+            <span style={{ fontSize: "14px" }}>Medium risk</span>
           </div>
 
+          {/* Low */}
           <div style={{ display: "flex", alignItems: "center" }}>
             <div
               style={{
                 width: "20px",
                 height: "20px",
                 borderRadius: "50%",
-                background: "#10b981",
+                background: "#10b981", 
                 marginRight: "8px",
                 border: "2px solid white",
                 boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
               }}
             ></div>
-            <span style={{ fontSize: "14px" }}>
-              Low Risk (e.g. southern rodent tick)
-            </span>
+            <span style={{ fontSize: "14px" }}>Low risk</span>
           </div>
-        </div>
-
-        <div
-          style={{
-            marginTop: "16px",
-            paddingTop: "12px",
-            borderTop: "1px solid #e5e7eb",
-            fontSize: "14px",
-          }}
-        >
-          Larger markers show sightings reported in the last 7 days.
         </div>
       </div>
 

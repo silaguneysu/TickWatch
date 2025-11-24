@@ -9,7 +9,7 @@ import MapSection from "./components/MapSection.jsx";
 import SightingDetails from "./components/SightingDetails.jsx";
 import { Link } from "react-router-dom";
 
-// Text for each section
+
 const filtersDescription = `
   Here you will be able to filter sightings by date range, species and severity.
 `;
@@ -34,7 +34,7 @@ const detailsDescription = `
 `;
 
 function App() {
-  // holds whichever marker was last clicked
+  
   const [selectedSighting, setSelectedSighting] = useState(null);
 
   return (
@@ -208,6 +208,13 @@ function App() {
           Watch this short Elanco video to see how to check your pet for ticks
           and remove them safely.
         </p>
+        <button
+                type="button"
+                className="primary-button"
+                onClick={() => speakText(filtersDescription)}
+              >
+                🔊 Read aloud
+              </button>
 
         <div className="video-wrapper">
           <iframe

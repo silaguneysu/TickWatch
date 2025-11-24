@@ -17,11 +17,11 @@ body {
 
 /* Header */
 .app-header {
-  padding: 0.4rem 2rem;     /* thinner header */
-  background: #175a9c;      /* teal */
+  padding: 0.4rem 2rem;     
+  background: #175a9c;      
   color: #f9fafb;
   box-shadow: 0 2px 8px rgba(53, 103, 219, 0.18);
-  width: 100%;              /* make sure it spans full width */
+  width: 100%;             
   box-sizing: border-box;
 }
 
@@ -29,13 +29,13 @@ body {
 .header-inner {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;             /* tighter spacing */
+  gap: 0.25rem;             
 }
 
 .app-header h1 {
   margin: 0;
-  font-size: 1.35rem;       /* slightly smaller */
-  padding: 0;               /* removed padding to keep header short */
+  font-size: 1.35rem;       
+  padding: 0;              
 }
 
 /* Subtitle under the divider */
@@ -49,7 +49,7 @@ body {
 /* Thin white divider line between title and subtitle */
 .header-divider {
   height: 1px;
-  width: 100%;              /* full width */
+  width: 100%;             
   background-color: #ffffff;
   opacity: 0.6;
   margin: 0.2rem 0 0.3rem;
@@ -72,13 +72,13 @@ body {
 /* container for header buttons (Track sightings, About Ticks, Report a sighting) */
 .header-nav {
   margin-left: auto;
-  margin-top: 0.4rem;       /* move links up/down */
+  margin-top: 0.4rem;       
   display: flex;
-  gap: 1.5rem;              /* spacing between links */
+  gap: 1.5rem;              
   align-items: flex-end;
 }
 
-/* shared styling for secondary header buttons (base) */
+
 .secondary-button {
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
@@ -95,7 +95,7 @@ body {
   background: rgba(15, 23, 42, 0.18);
 }
 
-/* Header navigation links – override to look like clean nav links */
+/* Header navigation links */
 .header-link {
   border: none;
   border-radius: 0;
@@ -126,11 +126,11 @@ body {
 }
 
 .header-link:hover {
-  background: transparent;  /* cancel the secondary-button hover background */
+  background: transparent;  
 }
 
 .elanco-logo {
-  height: 36px;  /* change this if you want it bigger/smaller */
+  height: 36px;  
   width: auto;
   display: block;
 }
@@ -144,7 +144,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Left + right columns */
+
 .left-panel,
 .right-panel {
   background: #ffffff;
@@ -167,7 +167,7 @@ body {
   gap: 1rem;
 }
 
-/* Sections inside the panels */
+
 .panel-section,
 .map-section,
 .details-section,
@@ -192,7 +192,7 @@ body {
   color: #4b5563;
 }
 
-/* Map + details side by side */
+/* Map + details together */
 .map-and-details {
   display: flex;
   gap: 0.75rem;
@@ -268,7 +268,7 @@ body {
   margin-left: 0.2rem;
 }
 
-/* Button styling you already have */
+/* Button styling  */
 .primary-button {
   align-self: flex-start;
   margin-top: 0.25rem;
@@ -299,7 +299,7 @@ body {
   color: #15803d;
 }
 
-/* Header images with text overlay */
+/* text overlay */
 .header-images {
   display: flex;
   gap: 0px;  
@@ -317,14 +317,14 @@ body {
   display: block;
 }
 
-/* 🔹 FULL-WIDTH "More About Ticks" BAND */
+/
 .more-about-ticks-band {
   padding: 2rem 2rem 0;
-  background-color: #f3f4f6; /* matches page background */
+  background-color: #f3f4f6; 
 }
 
 .more-about-inner {
-  max-width: 1100px;       /* wide across the page */
+  max-width: 1100px;     
   margin: 0 auto;
 }
 
@@ -341,7 +341,7 @@ body {
   color: #4b5563;
 }
 
-/* Shared layout for rows of buttons (e.g. Read aloud) */
+
 .button-row {
   margin-top: 0.75rem;
   display: flex;
@@ -349,7 +349,7 @@ body {
   align-items: center;
 }
 
-/* Text overlay on header images */
+/* Text overlay */
 .image-text-overlay {
   position: absolute;
   top: 50%;
@@ -416,7 +416,7 @@ body {
   display: inline-block;
 }
 
-/* Solid dots that match marker colours exactly – NO border */
+
 .legend-low,
 .legend-medium,
 .legend-high {
@@ -424,15 +424,15 @@ body {
 }
 
 .legend-low {
-  background-color: #22c55e;  /* green - Low */
+  background-color: #22c55e;  
 }
 
 .legend-medium {
-  background-color: #f97316;  /* orange - Medium */
+  background-color: #f97316;  
 }
 
 .legend-high {
-  background-color: #ef4444;  /* red - High */
+  background-color: #ef4444;  
 }
 
 /* Responsive text overlay for smaller screens */
@@ -511,7 +511,7 @@ body {
   background: rgba(220, 38, 38, 1);
 }
 
-/* Submit button enhanced */
+
 .submit-button {
   padding: 0.75rem 1.5rem !important;
   font-size: 1rem !important;
@@ -621,7 +621,6 @@ body {
   background-color: #ef4444;
 }
 
-/* Pulsing effect for recent markers */
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(32, 98, 164, 0.7);
@@ -1039,14 +1038,14 @@ body {
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 1rem;
-  border-radius: 999px;        /* pill / sticker shape */
-  background-color: #e5f3ff;   /* adjust to match your design */
+  border-radius: 999px;        
+  background-color: #e5f3ff;   
 }
 
 .tick-type-image {
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
+  width: 170px;
+  height: 170px;
+  border-radius: 8px;
   object-fit: cover;
 }
 
@@ -1061,19 +1060,19 @@ body {
   opacity: 0.9;
 }
 
-/* ========= Report page layout (ReportPage.jsx) ========= */
+/* Report page layout */
 
 .report-page-main {
   flex: 1;
   display: flex;
-  justify-content: center;   /* centre the form horizontally */
-  align-items: flex-start;   /* keep card near the top */
+  justify-content: center;   
+  align-items: flex-start;   
   padding: 2rem 1rem 3rem;
 }
 
 .report-section-full {
   width: 100%;
-  max-width: 640px;          /* card width */
+  max-width: 640px;          
   background: #ffffff;
   border-radius: 0.9rem;
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
@@ -1107,12 +1106,12 @@ body {
   background: #c7d7f5;
 }
 
-/* spacing before form on report page */
+
 .report-section-full .panel-text {
   margin-bottom: 1.2rem;
 }
 
-/* mobile tweaks for report card */
+
 @media (max-width: 600px) {
   .report-section-full {
     padding: 1.25rem 1.5rem;

@@ -33,7 +33,7 @@ function ReportPage() {
           </div>
           {/* match main dashboard header */}
           <div className="header-divider" />
-          <p className="header-subtitle">Elancos Tick Tracker System</p>
+          <p className="header-subtitle">Tick Tracker System</p>
         </div>
       </header>
 
