@@ -1,0 +1,1152 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  color: #0f172a;
+  background-color: #f3f4f6;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.app-header {
+  padding: 0.4rem 2rem;     /* thinner header */
+  background: #175a9c;      /* teal */
+  color: #f9fafb;
+  box-shadow: 0 2px 8px rgba(53, 103, 219, 0.18);
+  width: 100%;              /* make sure it spans full width */
+  box-sizing: border-box;
+}
+
+/* Header layout for logo + title */
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;             /* tighter spacing */
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.35rem;       /* slightly smaller */
+  padding: 0;               /* removed padding to keep header short */
+}
+
+/* Subtitle under the divider */
+.header-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  max-width: 640px;
+  opacity: 0.95;
+}
+
+/* Thin white divider line between title and subtitle */
+.header-divider {
+  height: 1px;
+  width: 100%;              /* full width */
+  background-color: #ffffff;
+  opacity: 0.6;
+  margin: 0.2rem 0 0.3rem;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* top row in header (logo left, buttons right) */
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* container for header buttons (Track sightings, About Ticks, Report a sighting) */
+.header-nav {
+  margin-left: auto;
+  margin-top: 0.4rem;       /* move links up/down */
+  display: flex;
+  gap: 1.5rem;              /* spacing between links */
+  align-items: flex-end;
+}
+
+/* shared styling for secondary header buttons (base) */
+.secondary-button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #f9fafb;
+  background: transparent;
+  color: #f9fafb;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background: rgba(15, 23, 42, 0.18);
+}
+
+/* Header navigation links – override to look like clean nav links */
+.header-link {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  color: #e5edf9;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.header-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  opacity: 0.9;
+  transition: width 0.2s ease-out;
+}
+
+.header-link:hover::after {
+  width: 100%;
+}
+
+.header-link:hover {
+  background: transparent;  /* cancel the secondary-button hover background */
+}
+
+.elanco-logo {
+  height: 36px;  /* change this if you want it bigger/smaller */
+  width: auto;
+  display: block;
+}
+
+/* Main layout */
+.app-main {
+  flex: 1;
+  display: flex;
+  padding: 1rem 2rem 2rem;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+/* Left + right columns */
+.left-panel,
+.right-panel {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+.left-panel {
+  flex: 0.9;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.right-panel {
+  flex: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Sections inside the panels */
+.panel-section,
+.map-section,
+.details-section,
+.report-section {
+  border-radius: 0.6rem;
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem 0.9rem;
+  background: #f9fafb;
+}
+
+.panel-section h2,
+.map-section h2,
+.details-section h2,
+.report-section h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.panel-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* Map + details side by side */
+.map-and-details {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.map-section {
+  flex: 1.4;
+  min-height: 260px;
+}
+
+.details-section {
+  flex: 1;
+  min-height: 260px;
+}
+
+.report-section {
+  min-height: 150px;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 900px) {
+  .app-main {
+    flex-direction: column;
+    padding: 0.75rem 1rem 1.5rem;
+  }
+
+  .left-panel,
+  .right-panel {
+    padding: 0.75rem;
+  }
+
+  .map-and-details {
+    flex-direction: column;
+  }
+}
+
+.report-form {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.report-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  gap: 0.25rem;
+}
+
+.report-form input[type='text'],
+.report-form input[type='date'],
+.report-form input[type="time"],
+.report-form select {
+  border-radius: 0.4rem;
+  border: 1px solid #d1d5db;
+  padding: 0.35rem 0.45rem;
+  font-size: 0.88rem;
+  font-family: inherit;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.form-row > label {
+  flex: 1;
+}
+
+.required {
+  color: #b91c1c;
+  margin-left: 0.2rem;
+}
+
+/* Button styling you already have */
+.primary-button {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  padding: 0.2rem 0.3rem;
+  border-radius: 10px;
+  border: rgb(10, 10, 11);
+  background: rgb(237, 237, 242);
+  color: #0b0c0c;
+  font-size: 0.6rem;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: #1a4f83;
+}
+
+/* Status messages */
+.form-status {
+  font-size: 0.85rem;
+  margin: 0.1rem 0;
+}
+
+.form-status-error {
+  color: #b91c1c;
+}
+
+.form-status-success {
+  color: #15803d;
+}
+
+/* Header images with text overlay */
+.header-images {
+  display: flex;
+  gap: 0px;  
+  padding: 0%;
+  margin: 0px;
+  position: relative;
+}
+
+.header-image {
+  width: 50%;
+  height: 450px;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+/* 🔹 FULL-WIDTH "More About Ticks" BAND */
+.more-about-ticks-band {
+  padding: 2rem 2rem 0;
+  background-color: #f3f4f6; /* matches page background */
+}
+
+.more-about-inner {
+  max-width: 1100px;       /* wide across the page */
+  margin: 0 auto;
+}
+
+.more-about-inner h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin: 0 0 0.75rem;
+}
+
+.more-about-inner p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* Shared layout for rows of buttons (e.g. Read aloud) */
+.button-row {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Text overlay on header images */
+.image-text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  color: rgb(251, 247, 247);
+  z-index: 10;
+  background-color: rgba(226, 219, 219, 0.6);
+  padding: 30px 50px;
+  border-radius: 12px;
+  max-width: 80%;
+
+  /* thin white border around the overlay */
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.image-text-overlay h2 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+}
+
+.image-text-overlay p {
+  font-size: 1.2rem;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.map-legend-text {
+  font-size: 0.85rem;
+  margin-top: 8px;
+  color: #555;
+}
+
+.map-legend {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.legend-title {
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.legend-items {
+  display: inline-flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+/* Solid dots that match marker colours exactly – NO border */
+.legend-low,
+.legend-medium,
+.legend-high {
+  border: none;
+}
+
+.legend-low {
+  background-color: #22c55e;  /* green - Low */
+}
+
+.legend-medium {
+  background-color: #f97316;  /* orange - Medium */
+}
+
+.legend-high {
+  background-color: #ef4444;  /* red - High */
+}
+
+/* Responsive text overlay for smaller screens */
+@media (max-width: 900px) {
+  .image-text-overlay h2 {
+    font-size: 1.8rem;
+  }
+  
+  .image-text-overlay p {
+    font-size: 1rem;
+  }
+  
+  .image-text-overlay {
+    padding: 20px 30px;
+  }
+}
+
+/* File input styling */
+.file-input {
+  display: block;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 2px dashed #d1d5db;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  background: #f9fafb;
+  font-size: 0.88rem;
+}
+
+.file-input:hover {
+  border-color: #2062a4;
+  background: #f3f4f6;
+}
+
+.file-note {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+/* Image preview */
+.image-preview-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.image-preview {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 0.5rem;
+  border: 2px solid #e5e7eb;
+  display: block;
+}
+
+.remove-image-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.remove-image-button:hover {
+  background: rgba(220, 38, 38, 1);
+}
+
+/* Submit button enhanced */
+.submit-button {
+  padding: 0.75rem 1.5rem !important;
+  font-size: 1rem !important;
+  border-radius: 8px !important;
+  background: #2062a4 !important;
+  color: white !important;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #1a4f83 !important;
+}
+
+.submit-button:disabled {
+  background: #9ca3af !important;
+  cursor: not-allowed;
+}
+
+/* Filter Controls */
+.filter-controls {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filter-group label {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  gap: 0.25rem;
+}
+
+.filter-controls input[type='date'],
+.filter-controls select {
+  border-radius: 0.4rem;
+  border: 1px solid #d1d5db;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.88rem;
+  font-family: inherit;
+}
+
+.reset-button {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.reset-button:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* Map stats */
+.map-stats {
+  font-size: 0.85rem;
+  color: #4b5563;
+  margin: 0.5rem 0;
+}
+
+/* Enhanced popup styling */
+.popup-content {
+  font-size: 0.9rem;
+}
+
+.popup-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #2062a4;
+}
+
+.popup-content p {
+  margin: 0.25rem 0;
+}
+
+.severity-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.severity-low {
+  background-color: #22c55e;
+}
+
+.severity-medium {
+  background-color: #f97316;
+}
+
+.severity-high {
+  background-color: #ef4444;
+}
+
+/* Pulsing effect for recent markers */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(32, 98, 164, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(32, 98, 164, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(32, 98, 164, 0);
+  }
+}
+
+.pulse-marker {
+  animation: pulse 2s infinite;
+}
+
+/* Sighting Details Panel */
+.sighting-details-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sighting-details-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.details-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2062a4;
+}
+
+.close-details-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.close-details-button:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Sighting Info Card */
+.sighting-info-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 0.85rem;
+}
+
+.info-value {
+  color: #0f172a;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+/* Location Statistics */
+.location-stats {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.location-stats h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: #2062a4;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2062a4;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* Severity Breakdown */
+.severity-breakdown {
+  margin-top: 1rem;
+}
+
+.breakdown-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4b5563;
+  margin: 0 0 0.5rem 0;
+}
+
+.severity-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.severity-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.severity-bar-label {
+  min-width: 60px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.severity-bar-container {
+  flex: 1;
+  height: 20px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.severity-bar {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.severity-bar-low {
+  background-color: #22c55e;
+}
+
+.severity-bar-medium {
+  background-color: #f97316;
+}
+
+.severity-bar-high {
+  background-color: #ef4444;
+}
+
+.severity-bar-count {
+  min-width: 30px;
+  text-align: right;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Timeline Section */
+.timeline-section {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.timeline-section h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #2062a4;
+}
+
+.timeline-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.timeline-list {
+  position: relative;
+}
+
+.timeline-empty {
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+  padding: 1rem;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.timeline-item-selected {
+  background: #eff6ff;
+  margin: 0 -0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 6px;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.25rem;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px currentColor;
+  z-index: 1;
+}
+
+.timeline-dot-low {
+  color: #22c55e;
+  background-color: #22c55e;
+}
+
+.timeline-dot-medium {
+  color: #f97316;
+  background-color: #f97316;
+}
+
+.timeline-dot-high {
+  color: #ef4444;
+  background-color: #ef4444;
+}
+
+.timeline-line {
+  width: 2px;
+  flex: 1;
+  background-color: #e5e7eb;
+  margin-top: 0.25rem;
+}
+
+.timeline-content {
+  flex: 1;
+  padding-top: 0;
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-species {
+  font-size: 0.9rem;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.timeline-severity {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.timeline-severity.severity-low {
+  background-color: #22c55e;
+}
+
+.timeline-severity.severity-medium {
+  background-color: #f97316;
+}
+
+.timeline-severity.severity-high {
+  background-color: #ef4444;
+}
+
+.timeline-recency {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Scrollbar styling for timeline */
+.timeline-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.timeline-container::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 3px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Video wrapper – big, centred, not in a card */
+.video-wrapper {
+  position: relative;
+  width: 60%;              /* Reduce from 80% */
+  max-width: 600px;        /* Reduce from 1000px */
+  margin: 1rem auto 0;
+  padding-bottom: 25%;  /* Reduce from 56.25% for shorter height */
+  height: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Severity-based background for Sighting Details card */
+.sighting-info-card.sighting-card-low {
+  background: #ecfdf3;       /* soft green */
+  border-color: #22c55e;     /* same green as low markers */
+}
+
+.sighting-info-card.sighting-card-medium {
+  background: #fff7ed;       /* soft orange */
+  border-color: #f97316;     /* same orange as medium markers */
+}
+
+.sighting-info-card.sighting-card-high {
+  background: #fef2f2;       /* soft red */
+  border-color: #ef4444;     /* same red as high markers */
+}
+
+.sighting-info-card.sighting-card-unknown {
+  background: #f3f4f6;       /* neutral grey */
+  border-color: #d1d5db;
+}
+
+.tick-types {
+  margin-top: 2rem;
+}
+
+.tick-types-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.tick-type-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;        /* pill / sticker shape */
+  background-color: #e5f3ff;   /* adjust to match your design */
+}
+
+.tick-type-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.tick-type-text h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.tick-type-text p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+/* ========= Report page layout (ReportPage.jsx) ========= */
+
+.report-page-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;   /* centre the form horizontally */
+  align-items: flex-start;   /* keep card near the top */
+  padding: 2rem 1rem 3rem;
+}
+
+.report-section-full {
+  width: 100%;
+  max-width: 640px;          /* card width */
+  background: #ffffff;
+  border-radius: 0.9rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  padding: 1.75rem 2.25rem;
+}
+
+.report-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.report-header-row h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #175a9c;
+}
+
+/* Back to dashboard button */
+.back-button {
+  font-size: 0.85rem;
+  background: #e5edf9;
+  color: #111827;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+}
+
+.back-button:hover {
+  background: #c7d7f5;
+}
+
+/* spacing before form on report page */
+.report-section-full .panel-text {
+  margin-bottom: 1.2rem;
+}
+
+/* mobile tweaks for report card */
+@media (max-width: 600px) {
+  .report-section-full {
+    padding: 1.25rem 1.5rem;
+  }
+}
+/* Full-width header */
+.full-width-header {
+  width: 100%;
+  margin: 0;
+  padding: 1.5rem 2rem;
+}
+
+.full-width-header .header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Centered form container */
+.report-page-main {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  min-height: calc(100vh - 200px);
+}
+
+.report-section-centered {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.report-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
